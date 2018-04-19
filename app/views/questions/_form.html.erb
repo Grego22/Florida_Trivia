@@ -1,0 +1,36 @@
+<%= form_for @question, class: "form-horizantal" do |f| %>
+
+  <% if @question.errors.any? %>
+    <% @question.errors.full_messages.each do |error|  %>
+    <% end %>
+  <% end %>
+  <div class ="form-group">
+    <%= f.label :question, class: "col-sm-2 control-label" %>
+    <%= f.text_field :question, class: "form-control" %>
+  </div>
+
+  <div class ="form-group">
+    <%= f.label :option_1, class: "col-sm-2 control-label" %>
+    <%= f.text_field :option_1, class: "form-control" %>
+  </div>
+
+  <div class ="form-group">
+    <%= f.label :"Answer 3", class: "col-sm-2 control-label" %>
+    <%= f.text_field :option_2, class: "form-control" %>
+  </div>
+
+  <div class ="form-group">
+    <%= f.label :option_3, class: "col-sm-2 control-label" %>
+    <%= f.text_area :option_3, class: "form-control" %>
+  </div>
+
+  <div class ="form-group">
+    <%= f.label :correct_answer, class: "col-sm-2 control-label" %>
+    <%= f.text_area :correct_option, class: "form-control" %>
+  </div>
+
+
+
+  <%= f.submit 'Save', class: 'btn btn-primary' %>
+
+<% end %>
