@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  before_action :set_question, only: [:show, :edit, :update, :destroy]
   def new
     @question = Question.new
   end
@@ -21,9 +22,22 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def destroy
+    @question.delete
+    redirect_to @question, notice: 'Your question was deleted sucessfully'
+  end
+
+  def edit
+
+  end
+
   private
 
   def question_params
     params.require(:question).permit(:question, :option_1, :option_2, :option_3, :correct_option)
+  end
+
+  def set_question
+    @question = Question.find(params[:id])
   end
 end
