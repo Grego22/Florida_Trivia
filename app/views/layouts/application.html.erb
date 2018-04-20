@@ -33,22 +33,24 @@
           FloridaTrivia
         <% end %>
 
-        <% if user_signed_in?%>
-        <li>
-          <%=link_to current_user.name, edit_user_registration_path%>
-          <%=link_to "Create a New Quiz", new_question_path, class: "button"%>
-        </li>
-            else
-          <li>
-            <%=link_to "Sign in", new_user_session_path %>
-            <%=link_to "Sign Up", new_user_registration_path, class: "button"%>
-          </li>
-              <%end%>
 
-              </div>
+      </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li class="active"><%= link_to "Home", "#" %></li>
+          <% if user_signed_in?%>
+            <li class>
+              <%=link_to "Create a New Quiz", new_question_path, class: "button"%>
+            </li>
+          <%else%>
+            <li>
+              <%=link_to "Sign in", new_user_session_path %>
+              <%=link_to "Sign Up", new_user_registration_path, class: "button"%>
+            </li>
+          <%end%>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to"Sign Out",new_user_session_path, class:"button"%></li>
         </ul>
       </div>
     </div>
