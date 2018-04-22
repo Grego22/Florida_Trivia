@@ -12,6 +12,7 @@ class QuizzesController < ApplicationController
   # GET /quizzes/new
   def new
     @quiz = Quiz.new
+    4.times { @quiz.questions.build }
   end
 
   # GET /quizzes/1/edit
