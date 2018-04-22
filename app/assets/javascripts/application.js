@@ -11,5 +11,5 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery
 
-@import 'jquery';@import 'jquery_ujs';
