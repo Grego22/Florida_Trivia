@@ -1,28 +1,29 @@
 class QuizzesController < ApplicationController
-  # GET /quizzes
+  before_action :set_quiz, only: [:show, :edit, :update, :destroy]
+
   def index
     @quizzes = Quiz.all.order('created_at DESC')
   end
 
-  # GET /quizzes/1
+
   def show
     @quiz = Quiz.find(params[:id])
   end
 
-  # GET /quizzes/new
+
   def new
     @quiz = Quiz.new
     4.times { @quiz.questions.build }
   end
 
-  # GET /quizzes/1/edit
+
   def edit
     @quiz = Quiz.find(params[:id])
   end
 
-  # POST /quizzes
+
   def create
-    @quiz = Quiz.new(quiz_params)
+    @quiz = Quiz.create(quiz_params)
 
     if @quiz.save
       redirect_to @quiz, notice: 'Quiz was successfully created.'
@@ -31,7 +32,7 @@ class QuizzesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /quizzes/1
+
   def update
     @quiz = Quiz.find(params[:id])
     if @quiz.update(quiz_params)
@@ -41,7 +42,7 @@ class QuizzesController < ApplicationController
     end
   end
 
-  # DELETE /quizzes/1
+
   def destroy
     @quiz = Quiz.find(params[:id])
     @quiz.destroy
@@ -50,8 +51,12 @@ class QuizzesController < ApplicationController
 
   private
 
-  # Only allow a trusted parameter "white list" through.
+
   def quiz_params
-    params.fetch(:quiz, {})
+    params.require(:quiz).permit(:id, :quiz,
+                                 quetions_attributes: [:id, :option_1, :option_2, :option_3, :correct_option])
+    def set_quiz
+      @quiz = Question.find(params[:id])
+    end
   end
 end

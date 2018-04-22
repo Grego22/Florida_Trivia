@@ -14,7 +14,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = @question = Question.create(params[:question].permit(:option_1, :option_2, :option_3,   :correct_option))
+    @question = Question.create(question_params)
     @question.user = current_user
 
     if @question.save!
