@@ -1,7 +1,7 @@
 <%= form_for @quiz, class: "form-horizantal" do |f| %>
 
-  <% if @quiz.errors.any? %>
-    <% @quiz.errors.full_messages.each do |error|  %>
+  <% if @question.errors.any? %>
+    <% @question.errors.full_messages.each do |error|  %>
     <% end %>
   <% end %>
   <div class ="form-group">

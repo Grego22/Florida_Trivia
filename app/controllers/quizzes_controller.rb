@@ -54,9 +54,9 @@ class QuizzesController < ApplicationController
 
   def quiz_params
     params.require(:quiz).permit(:id, :quiz,
-                                 quetions_attributes: [:id, :option_1, :option_2, :option_3, :correct_option])
+                                 quetions_attributes: [:id, :question, :option_1, :option_2, :option_3, :correct_option])
     def set_quiz
-      @quiz = Question.find(params[:id])
+      @quiz = Quiz.find(params[:id])
     end
   end
 end
