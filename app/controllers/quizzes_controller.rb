@@ -1,7 +1,7 @@
 class QuizzesController < ApplicationController
   # GET /quizzes
   def index
-    @quizzes = Quiz.all
+    @quizzes = Quiz.all.order('created_at DESC')
   end
 
   # GET /quizzes/1
