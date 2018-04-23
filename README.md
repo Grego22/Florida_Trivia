@@ -1,24 +1,13 @@
-# README
+#Employee Overtime App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Synopsis
+Rails application that allows users to create and take Florida trivia quizzes.  Players must login to create quizzes, but 
+"guests" can take quizzes without.  High scores calculate who has gotten answered correctly the most.
+[http://gjg-overtime.herokuapp.com](http://gjg-overtime.herokuapp.com)
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## License 
+This project is licensed und
